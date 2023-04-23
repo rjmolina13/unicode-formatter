@@ -42,7 +42,12 @@ let formatter = {
     this.allCharacters = new Set(Object.values(this.fonts).join(""));
 
     // mapping functions
+    const eraser = () => this.formatSelections("normal");
     const bold = () => this.formatSelections("sansBold");
+	const bolditalic = () => this.formatSelections("sansBoldItalic");
+	const serfsital = () => this.formatSelections("serifItalic");
+	const serfsbold = () => this.formatSelections("serifBold");
+	const sbolditalic = () => this.formatSelections("serifBoldItalic");
     const italic = () => this.formatSelections("sansItalic");
     const monospace = () => this.formatSelections("monospace");
     const strikethrough = () =>
@@ -56,19 +61,28 @@ let formatter = {
     const superscript = () => this.formatSelections("superscript");
     const subscript = () => this.formatSelections("subscript");
 
+	document.addEventListener("keydown",function(e){if(e.ctrlKey&&e.shiftKey&&"B"===e.key){e.preventDefault(),bolditalic()}});
+	document.addEventListener("keydown",function(e){if(e.ctrlKey&&e.shiftKey&&"I"===e.key){e.preventDefault(),serfsital()}});
+	document.addEventListener("keydown",function(e){if(e.ctrlKey&&e.altKey&&"B"===e.key){e.preventDefault(),serfsbold()}});
+	document.addEventListener("keydown",function(e){if(e.ctrlKey&&e.shiftKey&&e.altKey&&"B"===e.key){e.preventDefault(),sbolditalic()}});
+	document.addEventListener("keydown",function(e){if(e.ctrlKey&&e.shiftKey&&e.altKey&&"I"===e.key){e.preventDefault(),sbolditalic()}});
+
+
     // add keymaps
-    this.CodeMirror.setOption("extraKeys", {
-      "Ctrl-B": bold,
-      "Ctrl-I": italic,
-      "Ctrl-M": monospace,
-      "Ctrl-U": underline,
-      "Alt-K": strikethrough,
-      "Shift-Alt-5": strikethrough,
-      "Shift-Ctrl-=": superscript,
-      "Ctrl-.": superscript,
-      "Ctrl-=": subscript,
-      "Ctrl-,": subscript,
-    });
+	this.CodeMirror.setOption("extraKeys", {
+	  "Ctrl-E": eraser,
+	  "Ctrl-B": bold,
+	  "Ctrl-Alt-B": serfsbold,
+	  "Ctrl-I": italic,
+	  "Ctrl-M": monospace,
+	  "Ctrl-U": underline,
+	  "Alt-K": strikethrough,
+	  "Shift-Alt-5": strikethrough,
+	  "Shift-Ctrl-=": superscript,
+	  "Ctrl-.": superscript,
+	  "Ctrl-=": subscript,
+	  "Ctrl-,": subscript,
+	});
   },
 
   // check if text is already formatted with a certain font
@@ -190,10 +204,24 @@ window.addEventListener(
         false
       );
     });
-    // set dark mode on preference
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.setAttribute("data-theme", "dark");
-    }
+	// set dark mode on preference, function to handle the change in system color scheme preference
+	function handleColorSchemeChange(event) {
+	  if (event.matches) {
+		document.body.setAttribute("data-theme", "dark");
+	  } else {
+		document.body.removeAttribute("data-theme");
+	  }
+	}
+
+	// add event listener for changes in system color scheme preference
+	const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+	darkModeMediaQuery.addEventListener("change", handleColorSchemeChange);
+
+	// set initial theme based on system color scheme preference
+	if (darkModeMediaQuery.matches) {
+	  document.body.setAttribute("data-theme", "dark");
+	}
+
   },
   false
 );
