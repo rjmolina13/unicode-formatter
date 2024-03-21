@@ -7,7 +7,6 @@
     --textarea: #fafafa;
     --cm-background: #ffffff;
 }
-
 [data-theme="dark"] {
     --text: white;
     --background: #0d0f11;
@@ -15,7 +14,30 @@
     --cm-textc: #ffffff;
 }
 
-/* General Styles */
+.counter {
+    color: var(--text); /* Use CSS variable for text color */
+    font-size: 12px;
+    margin-top: 20px; /* Adjust margin as needed */
+    margin-left: 5px; /* Adjust margin as needed */
+    display: inline-block; /* Ensure it aligns with textarea or CodeMirror */
+}
+
+#charCounter span {
+    font-weight: bold;
+  }
+  
+/* html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*/
+/* *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+*/
 body {
     background: var(--background);
     display: inline-flexbox;
@@ -27,22 +49,10 @@ body {
     margin: 0 auto;
     max-width: 600px;
     color: var(--text);
+}
+body, button, textarea {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
-
-.counter {
-    /* General Styles */
-        color: var(--text); /* Use CSS variable for text color */
-        font-size: 12px;
-        margin-top: 20px; /* Adjust margin as needed */
-        margin-left: 5px; /* Adjust margin as needed */
-        display: inline-block; /* Ensure it aligns with textarea or CodeMirror */
-    }
-    #charCounter span {
-        font-weight: bold;
-}
-
-
 .CodeMirror {
     font-family: inherit;
     font-size: 22px;
@@ -53,16 +63,8 @@ body {
     background: var(--cm-background);
     margin: 0 auto; /* Center horizontally */
 }
-@media screen and (max-width: 768px) {
-    .CodeMirror {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-@media screen and (max-width: 480px) {
-    .CodeMirror {
-        width: 80%; /* Further adjust width for even smaller screens */
-    }
-}
+
+
 button:focus,
 summary:focus,
 a:focus {
@@ -70,7 +72,20 @@ a:focus {
     box-shadow: 0 0 0 2px var(--highlight);
 }
 
-/* Logo */
+@media screen and (max-width: 768px) {
+    .CodeMirror {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .CodeMirror {
+        width: 80%; /* Further adjust width for even smaller screens */
+    }
+}
+
+
+/* logo */
 .logo {
     display: flex;
     justify-content: center;
@@ -80,48 +95,44 @@ a:focus {
     font-size: 115%;
     transition: color 0.2s ease-out;
 }
-
 .logo:hover {
     color: var(--highlight);
 }
-
 a.logo img {
     width: 100%;
     max-width: 360px;
 }
-
 h1 {
-    text-align: center;
+    text-align:center;
 }
 
-/* GitHub */
 .github {
     display: grid;
     place-items: center;
     grid-auto-flow: column;
-    gap: 5px;
+    gap: 5px; /* Adjust as needed */
+  }
+  
+
+/* controls */
+.controls {
+    padding: 1em; /* Increase padding for better spacing */
+    transition: all 0.4s ease-out;
+    width: auto; /* Set width to auto */
+    max-width: 600px; /* Adjust max-width as needed */
 }
 
-/* Controls */
-.controls {
-    padding: 1em;
-    transition: all 0.4s ease-out;
-    width: auto;
-    max-width: 600px;
-}
 
 .control-btns {
     display: flex;
     flex-wrap: wrap;
     margin-top: 0.5em;
 }
-
 .more-fonts summary {
     margin: 0 0 12px 6px;
     cursor: pointer;
     border-radius: 2px;
 }
-
 .controls button {
     margin: 0.4em;
     width: 30px;
@@ -138,20 +149,18 @@ h1 {
     white-space: pre-wrap;
     transition: background 0.2s ease-in;
 }
-
 .controls button:hover {
     border-color: var(--border-hover);
     white-space: pre-wrap;
 }
-
 .more-fonts button {
-    padding: 0;
+    padding: 0px;
 }
-
-/* Textarea */
+/* textarea */
 textarea {
     width: 100%;
-    height: 70vh;
+    /* 70% of the viewport height */
+    height: 70vh; 
     border: none;
     outline: none;
     background: var(--textarea);
@@ -161,13 +170,15 @@ textarea {
 
 @media screen and (max-width: 768px) {
     textarea {
-        height: 50vh;
+        /* 50% of the viewport height for smaller screens */
+        height: 50vh; 
     }
 }
 
 @media screen and (max-width: 480px) {
     textarea {
         height: 40vh;
+         /* 40% of the viewport height for even smaller screens */
     }
 }
 
@@ -181,14 +192,12 @@ div.github {
 .github span {
     margin: 0 2px;
 }
-
-/* Buttons */
+/* buttons */
 .large-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .btn {
     color: white;
     font-size: 1.1em;
@@ -206,34 +215,33 @@ div.github {
     outline: none;
     cursor: pointer;
 }
-
+/* .icon-container {
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+*/
 .btn:hover {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22);
 }
-
 .btn svg {
     margin-right: 0.5em;
 }
-
 .clear-button {
     background: #3d4f78;
 }
-
 .clear-button:hover {
     background: #1b3671;
 }
-
 .copy-to-clipboard-button {
     background: #858585;
 }
-
 .copy-to-clipboard-button:hover {
     background: #727272;
 }
-
-/* Tooltips */
-.controls button:before,
-.large-buttons button:before {
+/* tooltips */
+/* bubble */
+.controls button:before, .large-buttons button:before {
     content: attr(title);
     height: auto;
     width: auto;
@@ -249,9 +257,8 @@ div.github {
     pointer-events: none;
     opacity: 0;
 }
-
-.controls button:after,
-.large-buttons button:after {
+/* triangle */
+.controls button:after, .large-buttons button:after {
     content: "";
     position: absolute;
     border-style: solid;
@@ -261,23 +268,16 @@ div.github {
     pointer-events: none;
     opacity: 0;
 }
-
 .large-buttons button:before {
     font-size: 1em;
     transform: translateY(-52px);
 }
-
 .large-buttons button:after {
     transform: translateY(-34px);
 }
-
-.controls button:hover:before,
-.large-buttons button:hover:before,
-.controls button:hover:after,
-.large-buttons button:hover:after {
+.controls button:hover:before, .large-buttons button:hover:before, .controls button:hover:after, .large-buttons button:hover:after {
     opacity: 1;
 }
-
 .subtitle {
     font-size: 0.7em;
     color: inherit;
@@ -303,6 +303,7 @@ div.github {
     text-decoration: underline;
 }
 
+
 /* For WebKit-based browsers (Chrome, Safari) */
 @media (prefers-color-scheme: dark) {
     ::-webkit-scrollbar {
@@ -322,3 +323,9 @@ div.github {
         background: #555; /* Hover color of the scroll thumb */
     }
 }
+
+/* For Firefox */
+/* You can customize Firefox scrollbar using -moz prefixed pseudo-elements */
+
+/* For Edge and IE */
+/* You can customize Edge and IE scrollbar using -ms prefixed pseudo-elements */
