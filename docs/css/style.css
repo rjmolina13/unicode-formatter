@@ -15,23 +15,10 @@
     --cm-textc: #ffffff;
 }
 
-html {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-}
-
+/* General Styles */
 body {
     background: var(--background);
-    display: flex;
+    display: inline-flexbox;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -40,24 +27,42 @@ body {
     margin: 0 auto;
     max-width: 600px;
     color: var(--text);
-}
-
-body,
-button,
-textarea {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+
+.counter {
+    /* General Styles */
+        color: var(--text); /* Use CSS variable for text color */
+        font-size: 12px;
+        margin-top: 20px; /* Adjust margin as needed */
+        margin-left: 5px; /* Adjust margin as needed */
+        display: inline-block; /* Ensure it aligns with textarea or CodeMirror */
+    }
+    #charCounter span {
+        font-weight: bold;
+}
+
 
 .CodeMirror {
     font-family: inherit;
     font-size: 22px;
     color: var(--cm-textc);
     padding: 18px;
-    width: 100%;
-    min-height: 300px;
+    width: 100%; /* Set initial width to 100% of its container */
+    min-height: 300px; /* Set initial height to 300px */
     background: var(--cm-background);
+    margin: 0 auto; /* Center horizontally */
 }
-
+@media screen and (max-width: 768px) {
+    .CodeMirror {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+@media screen and (max-width: 480px) {
+    .CodeMirror {
+        width: 80%; /* Further adjust width for even smaller screens */
+    }
+}
 button:focus,
 summary:focus,
 a:focus {
@@ -65,9 +70,7 @@ a:focus {
     box-shadow: 0 0 0 2px var(--highlight);
 }
 
-
-/* logo */
-
+/* Logo */
 .logo {
     display: flex;
     justify-content: center;
@@ -87,13 +90,24 @@ a.logo img {
     max-width: 360px;
 }
 
+h1 {
+    text-align: center;
+}
 
-/* controls */
+/* GitHub */
+.github {
+    display: grid;
+    place-items: center;
+    grid-auto-flow: column;
+    gap: 5px;
+}
 
+/* Controls */
 .controls {
-    padding: 0.5em;
+    padding: 1em;
     transition: all 0.4s ease-out;
-    width: 100%;
+    width: auto;
+    max-width: 600px;
 }
 
 .control-btns {
@@ -131,15 +145,13 @@ a.logo img {
 }
 
 .more-fonts button {
-    padding: 0px;
+    padding: 0;
 }
 
-
-/* textarea */
-
+/* Textarea */
 textarea {
     width: 100%;
-    height: 294px;
+    height: 70vh;
     border: none;
     outline: none;
     background: var(--textarea);
@@ -147,23 +159,30 @@ textarea {
     font-size: 1.4em;
 }
 
+@media screen and (max-width: 768px) {
+    textarea {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    textarea {
+        height: 40vh;
+    }
+}
 
 /* github buttons */
-
 div.github {
-    display: flex;
+    /* display: inline; */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-
 .github span {
     margin: 0 2px;
 }
 
-
-/* buttons */
-
+/* Buttons */
 .large-buttons {
     display: flex;
     justify-content: center;
@@ -196,12 +215,12 @@ div.github {
     margin-right: 0.5em;
 }
 
-.tweet-button {
-    background: #1da1f2;
+.clear-button {
+    background: #3d4f78;
 }
 
-.tweet-button:hover {
-    background: #1a91da;
+.clear-button:hover {
+    background: #1b3671;
 }
 
 .copy-to-clipboard-button {
@@ -212,12 +231,7 @@ div.github {
     background: #727272;
 }
 
-
-/* tooltips */
-
-
-/* bubble */
-
+/* Tooltips */
 .controls button:before,
 .large-buttons button:before {
     content: attr(title);
@@ -235,9 +249,6 @@ div.github {
     pointer-events: none;
     opacity: 0;
 }
-
-
-/* triangle */
 
 .controls button:after,
 .large-buttons button:after {
@@ -265,4 +276,49 @@ div.github {
 .controls button:hover:after,
 .large-buttons button:hover:after {
     opacity: 1;
+}
+
+.subtitle {
+    font-size: 0.7em;
+    color: inherit;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px; /* Add margin-bottom for spacing below the subtitle */
+}
+
+.subtitle a {
+    color: inherit;
+}
+
+.footer {
+    margin-bottom: 10px; /* Add margin-bottom for spacing below the footer */
+    text-align: center;
+    font-size: 0.95em;
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* For WebKit-based browsers (Chrome, Safari) */
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #333; /* Dark mode background color of the track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #666; /* Dark mode color of the scroll thumb */
+        border-radius: 6px; /* Rounded corners */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Hover color of the scroll thumb */
+    }
 }
