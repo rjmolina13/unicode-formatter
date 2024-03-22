@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
+# Set the default behavior, in case people don't have core.autocrlf set.
 * text=auto
+
+# Explicitly declare text files you want to always normalize line endings in
+*.css text
+*.js text
