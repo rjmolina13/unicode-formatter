@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var footer = document.querySelector('.footer');
+    var tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    tooltip.innerText = footer.getAttribute('title');
+    document.body.appendChild(tooltip); // Append tooltip to the body
+
+    footer.addEventListener('click', function() {
+        tooltip.classList.toggle('active');
+    });
+});
+
 let formatter = {
   // prettier-ignore
   fonts: {
@@ -118,6 +130,8 @@ let formatter = {
 
       
   },
+
+  
   // check if text is already formatted with a certain font
   alreadyFormatted: function(text, font) {
       const fontCharacters = new Set(this.fonts[font]);

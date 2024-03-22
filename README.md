@@ -1,19 +1,23 @@
 <h1 align="center" title="Unicode Formatter">𝓾𝓷𝓲𝓬𝓸𝓭𝓮 𝙛𝙤𝙧𝙢𝙖𝙩𝙩𝙚𝙧</h1>
 
+<h4 align="center"><i>based originally on DenverCoder1's</i> <a href="https://github.com/DenverCoder1/unicode-formatter">unicode-formatter</a></h4>
+
+<br>
+
 <p align="center">
   Format your Unicode text with 𝗯𝗼𝗹𝗱, 𝘪𝘵𝘢𝘭𝘪𝘤𝘴, and 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎
   <br/>
   and make all kinds of 𝓯𝓪𝓷𝓬𝔂 𝓽𝓮𝔁𝓽 with Unicode fonts.
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <a href="https://discord.gg/fPrdqh3Zfu" alt="Dev Pro Tips Discussion & Support Server">
     <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
-</p>
+</p> -->
 
 ## ⚡ Try it out!
 
-[unicode-formatter.demolab.com](https://unicode-formatter.demolab.com)
+[fonts.cictcsc.site](https://fonts.cictcsc.site)
 
 ## ℹ️ How to use
 
@@ -23,9 +27,9 @@ Click "More fonts" to show more Unicode fonts.
 
 The eraser button will convert your selection back to normal text.
 
-## 🖼️ Demo
+<!-- ## 🖼️ Demo
 
-[![demo](https://user-images.githubusercontent.com/51421669/115247650-f9e60d80-a0f4-11eb-92dd-4fd060d8fd7a.gif)](https://unicode-formatter.demolab.com)
+[![demo](https://user-images.githubusercontent.com/51421669/115247650-f9e60d80-a0f4-11eb-92dd-4fd060d8fd7a.gif)](https://unicode-formatter.demolab.com) -->
 
 ## 📜 Supported Fonts
 
@@ -99,9 +103,9 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 💙 If you like this project, give it a ⭐ and share it with friends!
 
-<p align="left">
+<!-- <p align="left">
   <a href="https://www.youtube.com/channel/UCipSxT7a3rn81vGLw9lqRkg?sub_confirmation=1"><img alt="Youtube" title="Youtube" src="https://img.shields.io/badge/-Subscribe-red?style=for-the-badge&logo=youtube&logoColor=white"/></a>
   <a href="https://github.com/sponsors/DenverCoder1"><img alt="Sponsor with Github" title="Sponsor with Github" src="https://img.shields.io/badge/-Sponsor-ea4aaa?style=for-the-badge&logo=github&logoColor=white"/></a>
 </p>
 
-[☕ Buy me a coffee](https://ko-fi.com/jlawrence)
+[☕ Buy me a coffee](https://ko-fi.com/jlawrence) -->
