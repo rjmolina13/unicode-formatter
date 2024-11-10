@@ -24,8 +24,8 @@
 
 #charCounter span {
     font-weight: bold;
-}
-
+  }
+  
 /* html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -107,13 +107,12 @@ h1 {
 }
 
 .github {
-    display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap into multiple lines */
-    justify-content: center; /* Center the buttons horizontally */
-    align-items: center; /* Center the buttons vertically */
-    gap: 5px; /* Adjust gap between buttons */
-}
-
+    display: grid;
+    place-items: center;
+    grid-auto-flow: column;
+    gap: 5px; /* Adjust as needed */
+  }
+  
 
 /* controls */
 .controls {
@@ -122,6 +121,7 @@ h1 {
     width: auto; /* Set width to auto */
     max-width: 600px; /* Adjust max-width as needed */
 }
+
 
 .control-btns {
     display: flex;
@@ -184,16 +184,14 @@ textarea {
 
 /* github buttons */
 div.github {
-    display: inline;
+    /* display: inline; */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-
 .github span {
     margin: 0 2px;
 }
-
 /* buttons */
 .large-buttons {
     display: flex;
@@ -280,90 +278,30 @@ div.github {
 .controls button:hover:before, .large-buttons button:hover:before, .controls button:hover:after, .large-buttons button:hover:after {
     opacity: 1;
 }
-/* Subtitle styles */
 .subtitle {
     font-size: 0.7em;
     color: inherit;
     text-decoration: none;
     text-align: center;
     margin-bottom: 10px; /* Add margin-bottom for spacing below the subtitle */
-    position: relative; /* Make it relative for tooltip positioning */
 }
 
 .subtitle a {
     color: inherit;
 }
 
-/* Footer styles */
 .footer {
     margin-bottom: 10px; /* Add margin-bottom for spacing below the footer */
     text-align: center;
     font-size: 0.95em;
     color: inherit;
     text-decoration: none;
-    position: relative; /* Make it relative for tooltip positioning */
 }
 
 .footer a {
     color: inherit;
     text-decoration: underline;
 }
-
-/* Tooltip styles */
-.footer::after,
-.tooltip::after {
-    content: attr(title);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 5px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    background-color: #fff;
-    color: #333;
-}
-
-/* Dark mode tooltip */
-[data-theme="dark"] .footer::after,
-[data-theme="dark"] .tooltip::after {
-    background-color: #333;
-    color: #fff;
-}
-
-/* Tooltip visibility */
-.footer:hover::after,
-.footer:focus::after,
-.tooltip:hover::after,
-.tooltip:focus::after {
-    opacity: 1;
-}
-
-/* Tooltip visibility on tap for touch screen devices */
-.footer:active::after,
-.tooltip:active::after {
-    opacity: 1;
-}
-
-/* Tooltip positioning */
-.tooltip {
-    position: absolute;
-    bottom: calc(100% + 5px); /* Position the tooltip just above the footer */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 5px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-}
-
-.tooltip.active {
-    opacity: 1;
-}
-
 
 
 /* For WebKit-based browsers (Chrome, Safari) */
