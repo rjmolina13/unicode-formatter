@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #038c78;
+  --color-primary-hover: #026658;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 px-5 py-3 rounded-full text-white bg-primary hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900 cursor-pointer;
+  }
+
+  .font-btn {
+    @apply w-10 h-10 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:border-gray-500 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 cursor-pointer text-lg outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  /* Custom styling for resize handle */
+  .custom-scrollbar::-webkit-resizer {
+    background-color: transparent;
+    border-style: solid;
+    /* Adjust these border widths to change the size and relative placement of the grabber */
+    border-width: 0 0 20px 20px;
+    border-color: transparent transparent rgba(156, 163, 175, 0.5) transparent;
+  }
+  
+  .dark .custom-scrollbar::-webkit-resizer {
+    border-color: transparent transparent rgba(107, 114, 128, 0.5) transparent;
+  }
+  
+  /* Adding padding to the scrollbar track effectively pushes the resizer inwards */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 24px;
+    height: 12px; /* Reduced height to push the handle further down (vertically lower) */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.3);
+    border-radius: 8px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+  }
+  
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(107, 114, 128, 0.4);
+  }
+}

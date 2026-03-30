@@ -1,0 +1,20 @@
+{
+  "name": "unicode-formatter",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\" title=\"Unicode Formatter\">𝓾𝓷𝓲𝓬𝓸𝓭𝓮 𝙛𝙤𝙧𝙢𝙖𝙩𝙩𝙚𝙧</h1>",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./assets/styles.css -o ./assets/tailwind.css",
+    "watch:css": "npx @tailwindcss/cli -i ./assets/styles.css -o ./assets/tailwind.css --watch",
+    "serve": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "lucide": "^1.7.0",
+    "tailwindcss": "^4.2.2"
+  }
+}

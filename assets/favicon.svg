@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="512" height="512">
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#aaccf6ff" />
+      <stop offset="100%" stop-color="#576cf6ff" />
+    </linearGradient>
+  </defs>
+  
+  <circle cx="60" cy="60" r="60" fill="url(#brandGradient)" />
+  
+  <text x="58" y="66" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-style="italic" 
+        font-weight="bold" 
+        font-size="68" 
+        fill="#ffffff" 
+        text-anchor="middle" 
+        dominant-baseline="middle">
+    uf
+  </text>
+</svg>

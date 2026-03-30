@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unicode Formatter</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="./assets/tailwind.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="flex flex-col items-center min-h-screen px-4 py-8">
+  
+  <div class="w-full max-w-3xl flex flex-col gap-6">
+    <!-- Header / Logo -->
+    <header class="text-center group">
+      <a href="https://github.com/rjmolina13/unicode-formatter" class="inline-block transition-transform hover:scale-105">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+          <span class="block text-sm font-semibold tracking-widest text-gray-500 dark:text-gray-400 mb-1">RubyJ's</span>
+          <span class="text-5xl leading-tight">𝓾𝓷𝓲𝓬𝓸𝓭𝓮 𝙛𝙤𝙧𝙢𝙖𝙩𝙩𝙚𝙧</span>
+        </h1>
+      </a>
+    </header>
+
+    <!-- GitHub Links -->
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="https://github.com/sponsors/denvercoder1" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700">
+        <i data-lucide="heart" class="w-4 h-4 text-pink-500"></i>
+        Sponsor OG dev
+      </a>
+      <a href="https://github.com/sponsors/rjmolina13" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700">
+        <i data-lucide="heart" class="w-4 h-4 text-pink-500"></i>
+        Sponsor
+      </a>
+      <a href="https://github.com/rjmolina13/unicode-formatter" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <!-- Controls -->
+    <section class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 flex flex-col gap-4">
+      
+      <!-- Primary Fonts -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+        <span class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider shrink-0 w-20">Fonts</span>
+        <div class="flex flex-wrap gap-2" id="primary-controls">
+          <!-- Buttons generated via JS or hardcoded -->
+          <button class="font-btn group relative" data-font="normal" data-clear="true" aria-label="Normal/Erase">
+            <i data-lucide="eraser" class="w-5 h-5"></i>
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Normal/Erase<br><span class="text-gray-400">(Cmd/Ctrl+E)</span></span>
+          </button>
+          <button class="font-btn group relative font-bold" data-font="sansBold" aria-label="Bold">
+            𝗕
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Bold<br><span class="text-gray-400">(Cmd/Ctrl+B)</span></span>
+          </button>
+          <button class="font-btn group relative italic" data-font="sansItalic" aria-label="Italic">
+            𝘐
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Italic<br><span class="text-gray-400">(Cmd/Ctrl+I)</span></span>
+          </button>
+          <button class="font-btn group relative font-bold italic" data-font="serifBoldItalic" aria-label="Serif Bold Italic">
+            𝑩𝑰
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Serif Bold Italic<br><span class="text-gray-400">(Cmd/Ctrl+Shift+J)</span></span>
+          </button>
+          <button class="font-btn group relative italic font-serif" data-font="serifItalic" aria-label="Serif Italic">
+            𝐼
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Serif Italic<br><span class="text-gray-400">(Cmd/Ctrl+Shift+I)</span></span>
+          </button>
+          <button class="font-btn group relative font-bold italic" data-font="sansBoldItalic" aria-label="Sans Bold Italic">
+            𝘽𝙄
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Sans Bold Italic<br><span class="text-gray-400">(Cmd/Ctrl+Shift+B)</span></span>
+          </button>
+          <button class="font-btn group relative font-bold font-serif" data-font="serifBold" aria-label="Serif Bold">
+            𝐁
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Serif Bold<br><span class="text-gray-400">(Cmd/Ctrl+Shift+N)</span></span>
+          </button>
+          <button class="font-btn group relative font-mono" data-font="monospace" aria-label="Monospace">
+            𝙼
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Monospace<br><span class="text-gray-400">(Cmd/Ctrl+M)</span></span>
+          </button>
+          <button class="font-btn group relative underline decoration-2 underline-offset-2" data-append="͟" aria-label="Underline">
+            U
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Underline<br><span class="text-gray-400">(Cmd/Ctrl+U)</span></span>
+          </button>
+          <button class="font-btn group relative line-through" data-append="̶" aria-label="Strikethrough">
+            S
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Strikethrough<br><span class="text-gray-400">(Alt+K)</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- More Fonts Accordion -->
+      <details class="group/details border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
+        <summary class="cursor-pointer text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider flex items-center gap-2 select-none hover:text-gray-700 dark:hover:text-gray-200 transition-colors">
+          More Fonts
+          <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
+        </summary>
+        <div class="flex flex-wrap gap-2 mt-4 pb-2" id="more-controls">
+          <button class="font-btn group relative" data-font="sans" aria-label="Math Sans">
+            𝖬
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Math Sans</span>
+          </button>
+          <button class="font-btn group relative" data-append="̳" aria-label="Double Underline">
+            U̳
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Double Underline</span>
+          </button>
+          <button class="font-btn group relative line-through" data-append="̵" aria-label="Short Strikethrough">
+            S̵
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Short Strikethrough</span>
+          </button>
+          <button class="font-btn group relative" data-font="doubleStruck" aria-label="Double-struck">
+            𝔻
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Double-struck</span>
+          </button>
+          <button class="font-btn group relative" data-font="fullwidth" aria-label="Fullwidth">
+            Ｆ
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Fullwidth</span>
+          </button>
+          <button class="font-btn group relative" data-font="fraktur" aria-label="Fraktur">
+            𝔉
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Fraktur</span>
+          </button>
+          <button class="font-btn group relative font-bold" data-font="boldFraktur" aria-label="Bold Fraktur">
+            𝕱
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Bold Fraktur</span>
+          </button>
+          <button class="font-btn group relative" data-font="script" aria-label="Script">
+            𝒮
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Script</span>
+          </button>
+          <button class="font-btn group relative font-bold" data-font="boldScript" aria-label="Bold Script">
+            𝓢
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Bold Script</span>
+          </button>
+          <button class="font-btn group relative" data-font="circled" aria-label="Circled">
+            Ⓒ
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Circled</span>
+          </button>
+          <button class="font-btn group relative" data-font="circledNegative" aria-label="Circled Negative">
+            🅒
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Circled Negative</span>
+          </button>
+          <button class="font-btn group relative" data-font="squared" aria-label="Squared">
+            🅂
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Squared</span>
+          </button>
+          <button class="font-btn group relative" data-font="squaredNegative" aria-label="Squared Negative">
+            🆂
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Squared Negative</span>
+          </button>
+          <button class="font-btn group relative" data-font="parenthesized" aria-label="Parenthesized">
+            ⒫
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Parenthesized</span>
+          </button>
+          <button class="font-btn group relative" data-font="smallCaps" aria-label="Small Caps">
+            Aʙ
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Small Caps</span>
+          </button>
+          <button class="font-btn group relative" data-font="subscript" aria-label="Subscript">
+            ₛᵤᵦ
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Subscript<br><span class="text-gray-400">(Cmd/Ctrl+=/,)</span></span>
+          </button>
+          <button class="font-btn group relative" data-font="superscript" aria-label="Superscript">
+            ˢᵘᵖ
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10 text-center">Superscript<br><span class="text-gray-400">(Shift+Cmd/Ctrl+= or Cmd/Ctrl+.)</span></span>
+          </button>
+          <button class="font-btn group relative" data-font="inverted" aria-label="Inverted">
+            ∀
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Inverted</span>
+          </button>
+          <button class="font-btn group relative" data-font="rotatedLeft" aria-label="Rotated Left">
+            ᗉ
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Rotated Left</span>
+          </button>
+          <button class="font-btn group relative" data-font="rotatedRight" aria-label="Rotated Right">
+            ᗆ
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Rotated Right</span>
+          </button>
+          <button class="font-btn group relative" data-font="mirrored" aria-label="Mirrored">
+            Я
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Mirrored</span>
+          </button>
+          
+          <button class="font-btn group relative" data-font="inverted" data-reverse="true" aria-label="Inverted Reverse">
+            ∀<i data-lucide="arrow-left-right" class="w-3 h-3 ml-1"></i>
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Inverted Reverse</span>
+          </button>
+          <button class="font-btn group relative" data-font="rotatedRight" data-reverse="true" aria-label="Rotated Right Reverse">
+            ᗆ<i data-lucide="arrow-left-right" class="w-3 h-3 ml-1"></i>
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Rotated Right Reverse</span>
+          </button>
+          <button class="font-btn group relative" data-font="mirrored" data-reverse="true" aria-label="Mirrored Reverse">
+            Я<i data-lucide="arrow-left-right" class="w-3 h-3 ml-1"></i>
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Mirrored Reverse</span>
+          </button>
+          
+          <button class="font-btn group relative" data-reverse="true" aria-label="Reverse Only">
+            <i data-lucide="arrow-left-right" class="w-5 h-5"></i>
+            <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10">Reverse Only</span>
+          </button>
+        </div>
+      </details>
+    </section>
+
+    <!-- Main Text Area -->
+    <div class="relative w-full shadow-sm rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition-all">
+      <textarea id="myTextarea" spellcheck="false" class="w-full h-64 sm:h-80 md:h-96 p-5 resize-y bg-transparent outline-none text-lg md:text-xl text-gray-800 dark:text-gray-100 font-sans min-h-[150px] pb-10 custom-scrollbar" placeholder="Type your text here...">Type your text here and 𝗳𝗼𝗿𝗺𝗮𝘁 it by highlighting the text you want to format and clicking one of the buttons above.
+
+Click "More fonts" to show more Unicode fonts. The eraser button will convert your selection back to normal text.</textarea>
+      
+      <div class="absolute bottom-3 left-4 text-xs font-semibold text-gray-400 dark:text-gray-500 pointer-events-none">
+        Characters: <span id="char-count" class="text-gray-600 dark:text-gray-300">0</span>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-center gap-4 mt-2">
+      <button id="copyBtn" class="btn-primary group relative w-36 !bg-gray-700 hover:!bg-gray-600 dark:!bg-gray-600 dark:hover:!bg-gray-500">
+        <i data-lucide="copy" class="w-5 h-5"></i>
+        <span>Copy</span>
+        <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10" id="copyTooltip">Copy to clipboard</span>
+      </button>
+
+      <button id="clearBtn" class="btn-primary group relative w-36 !bg-blue-900 hover:!bg-blue-800 dark:!bg-blue-800 dark:hover:!bg-blue-700">
+        <i data-lucide="trash-2" class="w-5 h-5"></i>
+        <span>Clear</span>
+        <span class="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap z-10" id="clearTooltip">Clear text</span>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-2 text-center text-sm text-gray-500 dark:text-gray-400 flex flex-col gap-2">
+      <p title="Made specifically for CICT-CSC, a personal project originally by RubyJ">Made with <span class="text-red-500">❤</span> by <a href="https://github.com/rjmolina13" class="hover:text-primary transition-colors underline decoration-gray-300 dark:decoration-gray-600 underline-offset-2">RubyJ / @rjmolina13</a></p>
+      <p class="text-xs">Originally made by <a href="https://github.com/DenverCoder1/unicode-formatter" class="hover:text-primary transition-colors underline decoration-gray-300 dark:decoration-gray-600 underline-offset-2">DenverCoder1</a></p>
+    </footer>
+
+  </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+  
+  <!-- Main Logic -->
+  <script src="./assets/app.js"></script>
+</body>
+</html>
