@@ -1,3 +1,7 @@
 
 .vscode/settings.json
-node_modules
+node_modules/
+.stash/
+.DS_Store
+dist/
+*.log
